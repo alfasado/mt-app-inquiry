@@ -1,0 +1,16 @@
+config_settings:
+    InquiryScript:
+        default: mt-inquiry.cgi
+    InquiryRedirectPath:
+        default: /
+    InquirySendTo:
+        default: webmaster@alfasado.jp
+tags:
+    function:
+        inquiryscript: sub { MT->config->InquiryScript }
+applications:
+    inquiry:
+        script: sub { MT->config->InquiryScript }
+        handler: MT::App::Inquiry
+        methods:
+            default: MT::App::Inquiry::_submit
